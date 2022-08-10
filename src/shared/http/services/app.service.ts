@@ -3,8 +3,8 @@ import 'reflect-metadata';
 
 @Injectable()
 export class AppService {
-  getHello(): any {
-    return 'hello World';
+  getHello(params: string): any {
+    return params;
   }
 }
 
