@@ -11,14 +11,12 @@ export class WeatherService {
   public async getCitiesTemperature(query: IWeatherDTO) {
     query.appId = process.env.WEATHER_KEY;
 
-    const result = this.httpService
+    return this.httpService
       .get(
         `${API}?q=${query.q}&appid=${query.appId}&units=${
           query.units || 'metric'
         }&lang=${query.lang || 'pt_br'}`,
       )
       .pipe(map(resp => resp.data));
-
-    return result;
   }
 }
